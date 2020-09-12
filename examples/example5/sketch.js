@@ -28,12 +28,8 @@ function draw() {
 
   blendMode(BLEND);
   background(0, 50)
-     fill(0);
-  noStroke()
-  text("5.17.20", 30, height - 30)
+  fill(0);
   blendMode(EXCLUSION);
-  
-
   noFill();
   strokeWeight(20);
   for(var i = 0; i < 3; i++) {

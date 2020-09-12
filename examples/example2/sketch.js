@@ -19,11 +19,7 @@ function setup() {
 
 function draw() {
   background(0, 10);
-  
-  fill(255)
-  text("4.21.20", 30, height - 30)
-
-    stroke(255, 10);
+  stroke(255, 10);
   fill(255, 5)
   // noFill();
   translate(width/2, height/2);
@@ -47,20 +43,8 @@ function draw() {
  
       stroke(0,10);
       if(r% 2 == 0)stroke(255,10);
-
-   //   verts.push(createVector(x,y));
       line(x, y, x2 , y2 )
     }
-    // beginShape();
-    // for(var r = 0; r < c; r++){
-    //   vertex(-verts[r].x, verts[r].y);
-    // }
-    // endShape(CLOSE);
-    // beginShape();
-    // for(var r = 0; r < c; r++){
-    //   vertex(verts[r].x, verts[r].y);
-    // }
-    // endShape(CLOSE);
   }
 
 

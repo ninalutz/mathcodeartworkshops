@@ -50,8 +50,4 @@ function draw() {
   }
   pop();
   
-  image(gra,0,0);
-
-  fill(255);
-  text("8.27.20", 30, height-30);
 }

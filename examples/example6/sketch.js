@@ -15,9 +15,6 @@ function draw() {
     p[i].move();
     p[i].display();
   }
-  fill(255)
-  text("5.27.20", 30, height-30)
-  
 }
 
 class Particle{
@@ -43,14 +40,8 @@ class Particle{
 }
 
 function loadParticles(){
-  // for(let i = 0; i < 100000; i++){
-  //  p.push(new Particle(random(width),random(height)));
-  // }
-  
   for(let i = 0; i < width; i+=0.5){
-    //for(int j = 0; j < height; j+=2){
       p.push(new Particle(i,0));
-    //}
   }
 
 }

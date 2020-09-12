@@ -10,8 +10,6 @@ function setup() {
 
 function draw() {
   background(0, 15);
-    fill(255);
-  text("5.9.20", 30, height - 30)
   translate(width/2, height/2); // translate 0,0 to center
 
   t = frameCount/maxFrameCount;

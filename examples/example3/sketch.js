@@ -24,7 +24,6 @@ function draw() {
   
   stroke(255);
   strokeWeight(0.5)
-  //rect(0,0,width,height);
 
   for (let i=0; i<numPetals; i++) {
     let r = i*outStep;
@@ -37,7 +36,4 @@ function draw() {
     let scale = 1 + i/numPetals * 3;
     line(px, py, x, y);
   }
-  fill(255);
-  noStroke();
-  text("4.26.20", 30 - width/2, height-30 - height/2)
-}
+ }

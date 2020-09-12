@@ -66,8 +66,4 @@ function draw(){
     }
   }
   angle+=0.3;
-
-  fill(255);
-  noStroke();
-  text("9.7.20", 30, height-30);
 }

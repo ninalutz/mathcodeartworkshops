@@ -22,9 +22,5 @@ function draw() {
   }
   s+=0.002;
   fill(0);
-  noStroke();
-   translate(-width/2, -height/2);
-  text("8.16.20", 30, height-30);
-  noFill();
 }
 

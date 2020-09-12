@@ -1,15 +1,15 @@
 //Based off the particle system example on p5.js
 
+//spin and collection for spins
 let spin;
-
 let spins = [];
 
 function setup() {
   createCanvas(600, 600);
    colorMode(HSB);
-
   // Initialize all values
   for (let i = 0; i < 200; i++) {
+    //Set the direction of the spin
     var dir = -1;
     if(i%2 == 0){
       dir = 1;
@@ -17,8 +17,6 @@ function setup() {
     spin = new Spinner(createVector(width/2, height/2), random(0, 400), dir, 0, random(0.01, 0.1), random(0, 200));
     spins.push(spin);
   }
-
- 
 }
 
 function draw() {
@@ -26,12 +24,10 @@ function draw() {
   for (let i = 0; i < spins.length; i++) {
     spins[i].run();
   }
-  fill(255);
-  text("2.4.2020", 10, height - 20);
 }
 
 class Spinner{
- constructor(center, radius, direction, theta, vel, hue) {
+  constructor(center, radius, direction, theta, vel, hue) {
     this.x = 0;
     this.y = 0; 
     this.center = center;

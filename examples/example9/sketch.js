@@ -60,15 +60,8 @@ function draw(){
       var v2 = globe[index2];
       stroke(map(i,0,total,0,200));
       noFill();
-      rectMode(CENTER)
       ellipse(v1.x + width/2,v1.y + height/2,v2.x + width/2,v2.y + height/2);
-      // rect(v1.y + width/2,v1.x + height/2,v2.y + width/2,v2.x + height/2);
-
     }
   }
   angle+=0.3;
-
-  fill(255);
-  noStroke();
-  text("9.4.20", 30, height-30);
 }
