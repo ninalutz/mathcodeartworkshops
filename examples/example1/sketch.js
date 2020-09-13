@@ -1,56 +1,29 @@
-//Based off the particle system example on p5.js
+//Set up 2 global vars
+var r=200;
+var s=0.002;
 
-//spin and collection for spins
-let spin;
-let spins = [];
-
-function setup() {
+function setup() { 
   createCanvas(600, 600);
-   colorMode(HSB);
-  // Initialize all values
-  for (let i = 0; i < 200; i++) {
-    //Set the direction of the spin
-    var dir = -1;
-    if(i%2 == 0){
-      dir = 1;
-    }
-    spin = new Spinner(createVector(width/2, height/2), random(0, 400), dir, 0, random(0.01, 0.1), random(0, 200));
-    spins.push(spin);
-  }
+  background(255)
 }
 
-function draw() {
-  // Convert polar to cartesian
-  for (let i = 0; i < spins.length; i++) {
-    spins[i].run();
+function draw() {   
+  background(255, 150);
+  translate(width/2, height/2);
+  let n=360;
+  for (let i=0; i<n; i++) {
+     let t1= i*2*PI/n;
+     let t2= s*t1;
+     let x1= r*cos(t1);
+     let y1= r*sin(t1);
+     let x2= r*cos(t2);
+     let y2= r*sin(t2);
+     stroke(i%255, 50)
+     strokeWeight(0.2)
+     noFill();
+     line(x1, y1, x2,y2);
   }
+  s+=0.002;
+  fill(0);
 }
 
-class Spinner{
-  constructor(center, radius, direction, theta, vel, hue) {
-    this.x = 0;
-    this.y = 0; 
-    this.center = center;
-    this.radius = radius;
-    this.direction = direction;
-    this.theta = theta;
-    this.vel = vel;
-    this.hue = hue;
-    this.color = color(hue, 0.3);
-    this.size = random(5, 60);
-  }
-  update(){
-    this.x= (this.radius * cos(this.theta) + this.center.x);
-    this.y = (this.radius * sin(this.theta) + this.center.y);
-    this.theta += this.vel;
-  }
-  display(){
-    fill(this.color);
-    noStroke();
-    ellipse(this.x, this.y, this.size, this.size);
-  }
-  run(){
-    this.update();
-    this.display();
-  }
-};

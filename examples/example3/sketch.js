@@ -1,4 +1,3 @@
-let size = 600;
 let numPetals = 10;
 let petalSize;
 let minPetalSize;
@@ -8,8 +7,8 @@ let phi;
 let epsilon = 0.05;
 
 function setup() {
-  createCanvas(size, size);
-  minPetalSize = floor(size/numPetals);
+  createCanvas(600, 600);
+  minPetalSize = floor(600/numPetals);
   outStep = minPetalSize * outFraction;
   phi = sqrt(5)/2;
   frameRate = 20;
