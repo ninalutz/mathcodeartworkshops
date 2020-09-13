@@ -31,13 +31,25 @@
                     <a class="nav-link js-scroll-trigger" href="#page-top">Top</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                    <a class="nav-link js-scroll-trigger" href="#about">Info</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+                    <a class="nav-link js-scroll-trigger" href="#started">Getting Started</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                    <a class="nav-link js-scroll-trigger" href="#sketch">Sketch Structure</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#functions">Fav functions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#help">Help/Docs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#code">Code</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#example">Examples</a>
                 </li>
             </ul>
         </div>
@@ -62,7 +74,7 @@
     </div>
 </section>
 
-<section id="about" class = "bg-light">
+<section id="started" class = "bg-light">
     <div class="row mx-2">
         <div class="col-lg-8 mx-auto">
             <h2>Getting started with p5.js</h2>
@@ -70,20 +82,21 @@
             <p>You have 3 main options for creating: </p>
                 <ul>1. <a href ="https://editor.p5js.org">p5.js online editor</a>, where you can code sketches in browser and instantly compile them! You can also make an account to like save your sketches too.</ul>
                 <ul>2. Downloading the library and putting it into a sketch.js file with the library and an HTML file. Then just publishing these HTML files wherever you want on the web. Blank example in the repo for this module and available here.</ul>
-                <ul>3. Using the online editor at <a href = "https://www.openprocessing.org/sketch/create">openprocessing.org</a>, and sharing with that community.</ul>
+                <ul>3. Using the online editor at <a href = "https://www.openprocessing.org/sketch/create">openprocessing.org</a>, and sharing with that community. Super cool since you can also fork sketches from there too!</ul>
         </div>
     </div>
 </section>
 
-<section id="about">
+<section id="sketch">
     <div class="row mx-2">
         <div class="col-lg-8 mx-auto">
             <h2>Basic sketch structure</h2>
+            <p>Every p5.js sketch has a setup() and draw() loop. Setup runs once. Draw runs consistently and just keeps looping.</p>
         </div>
     </div>
 </section>
 
-<section id="about" class = "bg-light">
+<section id="functions" class = "bg-light">
     <div class="row mx-2">
         <div class="col-lg-8 mx-auto">
             <h2>Some of my favorite...functions</h2>
@@ -91,7 +104,7 @@
     </div>
 </section>
 
-<section id="about" class = "">
+<section id="help" class = "">
     <div class="row mx-2">
         <div class="col-lg-8 mx-auto">
             <h2>Resources/Help/Documentation</h2>
@@ -99,7 +112,7 @@
     </div>
 </section>
 
-<section id="about" class = "bg-light">
+<section id="code" class = "bg-light">
     <div class="row mx-2">
         <div class="col-lg-8 mx-auto">
             <h2>Code/Downloads from this module</h2>
@@ -107,16 +120,52 @@
     </div>
 </section>
 
-<section id="about">
+<section id="example">
     <div class="row mx-2">
         <div class="col-lg-8 mx-auto">
             <h2>Example 1: </h2>
-            <img src="examples/example1/img.png" width =50%>
+            <div class = "row">
+                <div class="col-6">
+                <img src="examples/example1/img.png" width =100%>
+                </div>
+                <div class="col-6">
+                <code>//Set up 2 global vars<br>
+                    var r=200; //radius<br> 
+                    var s=0.002; //speed <br>
+                </code> <br>
+                <code>function setup() { <br>
+                    &emsp;&emsp;&emsp;createCanvas(600, 600); <br>
+                    &emsp;&emsp;&emsp;background(255)<br>
+                }</code>
+                <br>
+                <code>
+                    function draw() {  <br> 
+                     &emsp;&emsp;&emsp;background(255, 150); <br> 
+                      &emsp;&emsp;&emsp;translate(width/2, height/2); <br> 
+                      &emsp;&emsp;&emsp;let n=360;<br> 
+                      &emsp;&emsp;&emsp;for (let i=0; i&lt;n; i++) {<br> 
+                         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;let t1= i*2*PI/n;<br> 
+                         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;let t2= s*t1;<br> 
+                         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;let x1= r*cos(t1);<br> 
+                         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;let y1= r*sin(t1);<br> 
+                         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;let x2= r*cos(t2);<br> 
+                         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;let y2= r*sin(t2);<br> 
+                         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;stroke(i%255, 50)<br> 
+                         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;strokeWeight(0.2)<br> 
+                         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;noFill();<br> 
+                         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;line(x1, y1, x2,y2);<br> 
+                      &emsp;&emsp;&emsp;}<br> 
+                      &emsp;&emsp;&emsp;s+=0.002;<br> 
+                      &emsp;&emsp;&emsp;fill(0);<br> 
+                    }
+                </code>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<section id="about" class = "bg-light">
+<section id="ex2" class = "bg-light">
     <div class="row mx-2">
         <div class="col-lg-8 mx-auto">
             <h2>Example 2: </h2>
@@ -125,7 +174,7 @@
     </div>
 </section>
 
-<section id="about">
+<section id="ex3">
     <div class="row mx-2">
         <div class="col-lg-8 mx-auto">
             <h2>Example 3: </h2>
@@ -134,7 +183,7 @@
     </div>
 </section>
 
-<section id="about" class = "bg-light">
+<section id="ex4" class = "bg-light">
     <div class="row mx-2">
         <div class="col-lg-8 mx-auto">
             <h2>Example 4: </h2>

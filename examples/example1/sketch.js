@@ -1,6 +1,6 @@
 //Set up 2 global vars
-var r=200;
-var s=0.002;
+var r=200; //radius
+var s=0.002; //speed
 
 function setup() { 
   createCanvas(600, 600);
