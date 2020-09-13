@@ -88,11 +88,58 @@
     <div class="row mx-2">
         <div class="col-lg-8 mx-auto">
             <h2>Sketch tips</h2>
-            <p>Every p5.js sketch has a setup() and draw() loop. Setup runs once. Draw runs consistently and just keeps looping.</p>
-            <p>In general, once you have that structure, you can kind of do whatever you want. The key things to remember are:</p>
-            <ul>
+            <p>Every p5.js sketch has a <code>setup()</code> and <code>draw()</code> loop. Setup runs once. Draw runs consistently and just keeps looping. If you don't want to have a looping drawing, just leave your <code>draw()</code> loop empty and put all your code in <code>setup()</code></p>
+            <p>In general, once you have that structure, you can kind of do whatever you want. The key things to remember in general are:</p>
+             <ul>
+                In general, don't worry if your code is sloppy or not perfect! It is ok. You really don't need to be a production ready software developer to do creative coding -- that is why we have tools.
             </ul>
-            <h3>Some of my favorite...functions</h3>
+             <ul>
+                Give credit where credit is due. Often my sketches start as a rift from a few lines of something I see so I usually put on the top of the code file "rift from [source]". This also shows that no one does anything really in a vacuuum or alone!
+            </ul>
+            <ul>
+                p5.js is a Javascript library but has a lot of built in functions so always check their reference!
+            </ul>
+            <ul>
+                p5.js uses a Cartesian, computer graphics coordinate system. By default the UPPER LEFT is 0, 0. x increases to the right, y increases as you go down. This is common across all of computer graphics and there are a lot of math reasons we do this, <a href = "https://scc.ustc.edu.cn/zlsc/sugon/intel/compiler_f/main_for/bldaps_for/win/bldaps_grcoord.htm">read more here</a>.
+                <img src="computer_coordinates.png" >
+            </ul>
+            <ul>
+                RGB is the default color space, but you can <a href = "https://p5js.org/reference/#/p5/color">mess around with it</a> with lots of color functions.
+            </ul>
+             <ul>
+                Remember that p5.js has default alignments for primative shapes like rectangles. Check these if they are throwing off your sketches.
+            </ul>
+            <ul>
+                In general, you are probably going to want either a polar coordinate system or rectangular/Cartesian system for sketches. So think about this in your design. <a href = "https://p5js.org/examples/math-polartocartesian.html">Here's an example converting between</a>. 
+            </ul>
+            <ul>
+                Object oriented programming can be super powerful in p5.js and create beautiful things and particle systems and force fields. <a href = "ex8">Example 8</a> has an example of a Particle object if you haven't written objects in JS before.
+            </ul>
+            <ul>
+                While p5.js does support 3D, in general, OpenGL/WebGL implementations are going to just give you more. p5.js has a 3D mode on top of these, but it's just something to keep in mind. I primarily don't do a lot of 3D things so I have very few tips for this.
+            </ul>
+            <h3>Some of my favorite...functions/hacks</h3>
+             <ul>
+                <code>background(255, 50)</code> this makes a semi transparent background that gives your code a "ghost" appearance. 255 would be a white background like Example 1.
+            </ul>
+            <ul>
+                p5.js has a built in <code>noise() </code> function so you don't have to write matrices to get noise! <a href = "https://p5js.org/reference/#/p5/noise">Reference here.</a>
+            </ul>
+            <ul>
+                I love creating movement with sinusodial functions and also creating weird shapes with <code>tau</code> (2*pi). <a href = "#ex5">Example 5</a> shows an example of tau being used to create weird, noisy curves. <a href = "#ex4">Example 4</a> shows some cool sin/cos curves.
+            </ul>
+            <ul>
+                <code>map(value, start1, stop1, start2, stop2)</code> is a function that allows you to linearly interpolate between value ranges. Used for color + coordinates. <code>lerpColor(startColor, endColor, percent)</code> lets you do this a bit easier for colors.
+            </ul>
+            <ul>
+                <code>createVector()</code> a lot of my sketches are vector based and what's great about creating a vector is you can do vector math like adding forces and velocities. <a href = "https://p5js.org/reference/#/p5/createVector">Reference here.</a> 
+            </ul>
+            <ul>
+                <code>curveVertex()</code> allows you to build more complex geometries overall.<a href ="https://p5js.org/reference/#/p5/curveVertex"> Refence here</a>. <a href = "ex4">Example 4</a> also has an example of this.
+            </ul>
+            <ul>
+                <code>blendMode()</code> is a super easy way to start playing with color and pixel blending without writing any code. Reference for all the modes is <a href = "https://p5js.org/reference/#/p5/blendMode"> here </a>. I personally love using EXCLUSION to get a glitchy look.
+            </ul>
         </div>
     </div>
 </section>
@@ -112,7 +159,7 @@
     <div class="row mx-2">
         <div class="col-lg-8 mx-auto">
             <h2>Code/Downloads from this module</h2>
-            <p>All of the code of the examples on this site is in this repo, including a blank p5.js sketch template <a href = "blank_p5_example.zip" download>here</a> </p>
+            <p>All of the code of the examples on this site is <a href = "https://github.com/ninalutz/mathcodeartworkshops">in this repo</a>, including a blank p5.js sketch template <a href = "blank_p5_example.zip" download>here</a> </p>
             <p>I am, in general, trying to get better at documenting things and making more tutorials and tutorial like materials, so feel free to check back on my Twitter as I post things.</p>
         </div>
     </div>
@@ -251,7 +298,7 @@
 </section>
 
 
-<section id="ex6" >
+<section id="ex8" >
     <div class="row mx-2">
         <div class="col-lg-8 mx-auto">
             <h2>Example 8: </h2>

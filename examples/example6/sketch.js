@@ -1,6 +1,5 @@
 var globe;
-var total = 15;
-var offset =0;
+var numElements = 15;
 var angle =0;
 
 var m=0;
@@ -11,10 +10,10 @@ var b = 1;
 
 function setup(){
   createCanvas(600,600)
-  globe = new Array((total+1)*(total+1));
+  globe = new Array((numElements+1)*(numElements+1));
 }
 
-function supershape(theta, m, n1, n2, n3){
+function getRadius(theta, m, n1, n2, n3){
   var t1=abs((1/a)*cos(m*theta/4));
   t1=pow(t1,n2);
   var t2=abs((1/b)*sin(m*theta/4));
@@ -32,32 +31,30 @@ function draw(){
 
   var r=200;
 
-  for(var i=0;i<total+1;i++){
+  for(var i=0;i<numElements+1;i++){
     globe[i] =[];
-    var lat =map(i,0,total,-HALF_PI,HALF_PI);
-    var r2 = supershape(lat,m,0.2,1.7,1.7);
+    var value1 =map(i,0,numElements,-HALF_PI,HALF_PI);
+    var r2 = getRadius(value1,m,0.2,1.7,1.7);
 
-    for(var j=0;j<total+1;j++){
-      var lon = map(j,0,total,-PI,PI);
-      var r1=supershape(lon,m,0.2,1.7,1.7);
+    for(var j=0;j<numElements+1;j++){
+      var value2 = map(j,0,numElements,-PI,PI);
+      var r1=getRadius(value2,m,0.2,1.7,1.7);
 
-      var x = r*r1*cos(lon)*r2*cos(lat);
-      var y = r*r1*sin(lon)*r2*cos(lat);
+      var x = r*r1*cos(value2)*r2*cos(value1);
+      var y = r*r1*sin(value2)*r2*cos(value1);
 
-      var index=i+j*(total+1);
+      var index=i+j*(numElements+1);
       globe[index] = createVector(x,y);
     }
   }
 
-  offset+=5;
-
-  for(var i=0;i<total;i+=2){
-    for(var j=0;j<total+1;j+=2){
-      var index1=i+j*(total+1);
+  for(var i=0;i<numElements;i+=2){
+    for(var j=0;j<numElements+1;j+=2){
+      var index1=i+j*(numElements+1);
       var v1 = globe[index1];
-      var index2=(i+1)+j*(total+1);
+      var index2=(i+1)+j*(numElements+1);
       var v2 = globe[index2];
-      stroke(map(i,0,total,0,200));
+      stroke(map(i,0,numElements,0,200));
       noFill();
       ellipse(v1.x + width/2,v1.y + height/2,v2.x + width/2,v2.y + height/2);
     }

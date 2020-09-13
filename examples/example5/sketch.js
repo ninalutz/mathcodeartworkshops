@@ -1,3 +1,5 @@
+//I have seen this code in tons of workshops, etc so idk origin.
+
 function setup() {
   createCanvas(600, 600);
   background(100);
@@ -20,8 +22,6 @@ function draw() {
     let colorRatio = map(yoff,hei/2,-hei/2,0,6);
     let coli = int(colorRatio);
     colorRatio = colorRatio%1;
-    if(coli == 0)colorRatio=pow(colorRatio,1.5);
-    if(coli == 5)colorRatio=pow(colorRatio,0.8);
     let col = lerpColor(color(0), color(255),colorRatio);
     stroke(col, 20);
     beginShape();

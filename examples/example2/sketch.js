@@ -13,7 +13,7 @@ function draw() {
   translate(width/2, height/2); // translate 0,0 to center
 
   t = frameCount/maxFrameCount;
-  theta = TWO_PI*t;
+  theta = TAU*t;
 
   for ( var x= -width/2; x <= width/2; x += 25) {
     for (var y= -height/2; y <= height/2; y += 50) {
