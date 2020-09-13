@@ -10,3 +10,7 @@ header {
 section {
   padding: 40px 0;
 }
+
+.nav-item{
+	padding: 0 10px 0 10px;
+}
